@@ -1,0 +1,21 @@
+--Create a Grocery Store Database
+
+CREATE TABLE bakery (id INTEGER PRIMARY KEY, name TEXT, quantity INTEGER, price INTEGER);
+
+INSERT INTO bakery VALUES (1, "Croissant", 5,3);
+INSERT INTO bakery VALUES (2, "Brownies", 2,4);
+INSERT INTO bakery VALUES (3, "Cake", 4,10);
+INSERT INTO bakery VALUES (4, "Cookies", 6,2);
+INSERT INTO bakery VALUES (5, "Pie", 2,7);
+INSERT INTO bakery VALUES (6, "Custard", 3,9);
+INSERT INTO bakery VALUES (7, "Cupcake", 5,6);
+INSERT INTO bakery VALUES (8, "Cobbler", 3,5);
+INSERT INTO bakery VALUES (9, "Brookie" 2,3);
+
+--display the database ordered by quantity
+SELECT * FROM bakery 
+ORDER BY quantity;
+
+--display the database ordered by price.
+SELECT * FROM bakery 
+WHERE price>2
