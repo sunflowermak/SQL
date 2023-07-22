@@ -1,0 +1,97 @@
+CREATE TABLE pokemon(
+  Number     INTEGER,
+  Name       TEXT PRIMARY KEY,
+  Type_1     TEXT,
+  Type_2     TEXT,
+  Total      INTEGER,
+  HP         INTEGER,
+  Attack     INTEGER,
+  Defense    INTEGER,
+  Sp_Atk     INTEGER,
+  Sp_Def     INTEGER,
+  Speed      INTEGER,
+  Generation INTEGER,
+  Legendary  TEXT);
+INSERT INTO pokemon VALUES (1,'Bulbasaur','Grass','Poison',318,45,49,49,65,65,45,1,'False');
+
+INSERT INTO pokemon VALUES (2,'Ivysaur','Grass','Poison',405,60,62,63,80,80,60,1,'False');
+
+INSERT INTO pokemon(Number,Name,Type_1,Type_2,Total,HP,Attack,Defense,Sp_Atk,Sp_Def,Speed,Generation,Legendary) VALUES (3,'Venusaur','Grass','Poison',525,80,82,83,100,100,80,1,'False');
+
+INSERT INTO pokemon VALUES (3,'VenusaurMega Venusaur','Grass','Poison',625,80,100,123,122,120,80,1,'False');
+
+INSERT INTO pokemon VALUES (4,'Charmander','Fire',NULL,309,39,52,43,60,50,65,1,'False');
+
+INSERT INTO pokemon VALUES (5,'Charmeleon','Fire',NULL,405,58,64,58,80,65,80,1,'False');
+
+INSERT INTO pokemon VALUES (6,'Charizard','Fire','Flying',534,78,84,78,109,85,100,1,'False');
+
+INSERT INTO pokemon VALUES (6,'CharizardMega Charizard X','Fire','Dragon',634,78,130,111,130,85,100,1,'False');
+
+INSERT INTO pokemon VALUES (6,'CharizardMega Charizard Y','Fire','Flying',634,78,104,78,159,115,100,1,'False');
+
+INSERT INTO pokemon VALUES (7,'Squirtle','Water',NULL,314,44,48,65,50,64,43,1,'False');
+
+INSERT INTO pokemon VALUES (8,'Wartortle','Water',NULL,405,59,63,80,65,80,58,1,'False');
+
+INSERT INTO pokemon VALUES (9,'Blastoise','Water',NULL,530,79,83,100,85,105,78,1,'False');
+
+INSERT INTO pokemon VALUES (9,'BlastoiseMega Blastoise','Water',NULL,630,79,103,120,135,115,78,1,'False');
+
+INSERT INTO pokemon VALUES (10,'Caterpie','Bug',NULL,195,45,30,35,20,20,45,1,'False');
+
+INSERT INTO pokemon VALUES (11,'Metapod','Bug',NULL,205,50,20,55,25,25,30,1,'False');
+
+INSERT INTO pokemon VALUES (12,'Butterfree','Bug','Flying',395,60,45,50,90,80,70,1,'False');
+
+INSERT INTO pokemon VALUES (13,'Weedle','Bug','Poison',195,40,35,30,20,20,50,1,'False');
+
+INSERT INTO pokemon VALUES (14,'Kakuna','Bug','Poison',205,45,25,50,25,25,35,1,'False');
+
+INSERT INTO pokemon VALUES (15,'Beedrill','Bug','Poison',395,65,90,40,45,80,75,1,'False');
+
+INSERT INTO pokemon VALUES (15,'BeedrillMega Beedrill','Bug','Poison',495,65,150,40,15,80,145,1,'False');
+
+INSERT INTO pokemon VALUES (16,'Pidgey','Normal','Flying',251,40,45,40,35,35,56,1,'False');
+
+INSERT INTO pokemon VALUES (17,'Pidgeotto','Normal','Flying',349,63,60,55,50,50,71,1,'False');
+
+INSERT INTO pokemon VALUES (18,'Pidgeot','Normal','Flying',479,83,80,75,70,70,101,1,'False');
+
+INSERT INTO pokemon VALUES (18,'PidgeotMega Pidgeot','Normal','Flying',579,83,80,80,135,80,121,1,'False');
+
+INSERT INTO pokemon VALUES (19,'Rattata','Normal',NULL,253,30,56,35,25,35,72,1,'False');
+
+INSERT INTO pokemon VALUES (20,'Raticate','Normal',NULL,413,55,81,60,50,70,97,1,'False');
+
+SELECT * FROM pokemon LIMIT 10;
+
+SELECT AVG(HP) FROM pokemon; 
+SELECT AVG(attack) FROM pokemon;
+SELECT AVG(defense) FROM pokemon;
+
+SELECT AVG(sp_Atk) FROM pokemon;
+SELECT AVG(speed) FROM pokemon;
+
+SELECT name, MAX(HP) FROM pokemon;
+SELECT name, MIN(HP) FROM pokemon;
+
+SELECT name FROM pokemon GROUP BY type_1;
+
+SELECT name FROM pokemon WHERE generation = 1 AND HP = 60;
+
+SELECT COUNT(*) FROM pokemon WHERE type_1="Grass";
+
+SELECT ROUND(HP*0.05) AS HP_total FROM pokemon;
+
+SELECT COUNT(attack), name FROM pokemon GROUP BY name HAVING attack >15 LIMIT 10;
+
+SELECT Speed FROM pokemon;
+/*CASE*/ 
+
+WHEN Speed is >50 THEN 'Below Average'
+WHEN Speed is >70 THEN 'Average'
+WHEN Speed is >100 THEN 'Above Average'
+ELSE 'Below Average' 
+
+END AS 'total_speed' FROM pokemon GROUP BY 'total_speed
