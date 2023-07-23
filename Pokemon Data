@@ -1,3 +1,5 @@
+#This project will utilize Pokemon data
+
 CREATE TABLE pokemon(
   Number     INTEGER,
   Name       TEXT PRIMARY KEY,
@@ -78,6 +80,7 @@ SELECT name, MIN(HP) FROM pokemon;
 
 SELECT name FROM pokemon GROUP BY type_1;
 
+#I wanted to compare which generation 1 pokemon had the same HP stats
 SELECT name FROM pokemon WHERE generation = 1 AND HP = 60;
 
 SELECT COUNT(*) FROM pokemon WHERE type_1="Grass";
@@ -86,6 +89,8 @@ SELECT ROUND(HP*0.05) AS HP_total FROM pokemon;
 
 SELECT COUNT(attack), name FROM pokemon GROUP BY name HAVING attack >15 LIMIT 10;
 
+
+#I used the CASE feature here to gain a clear idea and organize the different speeds of all of the Pokemon data that was gathered
 SELECT Speed FROM pokemon;
 /*CASE*/ 
 
